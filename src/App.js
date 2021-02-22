@@ -1,24 +1,23 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import Color from './component/color';
 import './App.css';
 
 function App() {
+  const [text, setText] = useState('Press');
+  const [color, setColor] = useState('color_red');
+
+  const array = [<h1>Hello Hello Hello Hello</h1>,<h1>Hello Hello Hello</h1>,<h1>Hello Hello</h1>,<h1>Hello</h1>];
+  const list = array.map((product,key) => <span key={key}>{product}</span>);
+  const click = () =>{
+    setText('Button Clicked');
+    setColor('color_green');
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <React.Fragment>
+   {list}
+   <Color color={color}/>
+    <button type="button" onClick={click} className="">{text}</button>
+   </React.Fragment>
   );
 }
 
